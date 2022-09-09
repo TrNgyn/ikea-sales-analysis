@@ -50,7 +50,7 @@ skim(df)
 ```
 Using the skim fuction, we notice a significant amount of missing values in the depth, height and width variables. Number of missing values are 1464, 988 and 589 respectively, accounting for approximately 40%, 28% and 16% of the corresponding variables.
 ```{r}
-#Countnumber of categories
+#Count number of categories
 df %>% count(category, sort=TRUE)
 ```
 Upon exploration, there are 17 categories within the IKEA sales data. 'Tables & desks' category has the highest number of items (612), and 'Room dividers' category has the lowest number of items (13).
@@ -66,5 +66,19 @@ df %>% add_count(category) %>%
        title="Number of Items Per Category")+
   coord_flip()
 ```
+
+Answering the key question: How can we increase sales using the provided data from Ikea?
+
+Observing the dataframe, my team proposes some of the following subquestions:
+
+1. There are two prices in the dataframe, the new price and the old price. many items do not have an old price. We suspect whether there is a correlation between the discount and new price. We shall apply the new price for items with no old price in the process of examining the impact of discounting on price.
+
+2. Can item size price price? Given the height, width and depth, we want to explore the relationship between size and price. Would we observe more bunky, large objects to have higher price or not? This question could be solved using the regression model.
+
+3. Does online sale impact price? In reality, we do see a lot of brands offering online items at a cheaper price compared to in-store purchase due to many reasons such as cut in rent, staffs, and so on. This question could be solved using the classification model as the sellable_online takes Y/N value.
+
+4. Does having other colors impact price? We suspect that an item having more than one colour could be deemed as being 'popular', but not necessarly reflect on price. This question could be solved using the classification model as the other_colors variable takes Y//N value.
+
+*Prices are listed in SR, a transformation to $ could be made.
 
 
