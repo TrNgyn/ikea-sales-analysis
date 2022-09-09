@@ -1,0 +1,70 @@
+---
+title: "Ikea Sales Analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+Purpose of this task is to:
+
+Demonstrate data wrangling and visualisation skills
+
+Demonstrate knowledge and skills in developing models with a focus on classification and regression algorithms
+
+Evaluate developed models and identify bottlenecks and improvements
+
+Develop a solution to the business problem and communicate findings to stakeholders
+
+Learning outcomes:
+
+Critically analyse the role of business analytics in supporting decision making in a modern organisation, with a focus of working with different data formats and data wrangling techniques
+
+Investigate and assess different analytics solutions in open source environments to develop effective visualisations
+
+Evaluate analytics models to uncover hidden patterns in business data and understand relationships between variables
+
+Deconstruct and exemplify data communication strategies through reproducible reporting and collaborative practices with version control
+
+Exemplify creative and innovative problem-solving of complex professional challenges through the application data analytics in the business domain
+
+```{r}
+library(dplyr)
+library(skimr)
+library(tidyverse)
+
+#Get the data
+df <- read.csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-11-03/ikea.csv')
+```
+
+There is a total of 3694 columns and 14 rows in the dataframe
+
+```{r}
+#Explore the data
+#Display the first 10 rows
+head(df)
+#Display data type using the skim function
+skim(df)
+```
+Using the skim fuction, we notice a significant amount of missing values in the depth, height and width variables. Number of missing values are 1464, 988 and 589 respectively, accounting for approximately 40%, 28% and 16% of the corresponding variables.
+```{r}
+#Count the number of categories
+df %>% count(category, sort=TRUE)
+```
+Upon exploration, there are 17 categories within the IKEA sales data. 'Tables & desks' category has the highest number of items (612), and 'Room dividers' category has the lowest number of items (13).
+```{r}
+#Visualise number of categories
+df %>% add_count(category) %>%
+  mutate(category_fct = fct_reorder(category, n)) %>% 
+  ggplot(aes(category_fct))+
+  geom_bar() +
+  geom_text(aes(label = n, y = n), nudge_y = 20)+
+  labs(x="Number Of Items",
+       y="Category",
+       title="Number of Items Per Category")+
+  coord_flip()
+```
+
+
