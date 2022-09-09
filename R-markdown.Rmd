@@ -75,10 +75,10 @@ Observing the dataframe, my team proposes some of the following subquestions:
 
 2. Can item size price price? Given the height, width and depth, we want to explore the relationship between size and price. Would we observe more bunky, large objects to have higher price or not? This question could be solved using the regression model.
 
-3. Does online sale impact price? In reality, we do see a lot of brands offering online items at a cheaper price compared to in-store purchase due to many reasons such as cut in rent, staffs, and so on. This question could be solved using the classification model as the sellable_online takes Y/N value.
+3. Does online sale impact price? In reality, we do see a lot of brands offering online items at a cheaper price compared to in-store purchase due to many reasons such as cut in rent, staffs, and so on. This question could be solved using the classification model.
 
-4. Does having other colors impact price? We suspect that an item having more than one colour could be deemed as being 'popular', but not necessarly reflect on price. This question could be solved using the classification model as the other_colors variable takes Y//N value.
+4. Does having other colors impact price? We suspect that an item having more than one colour could be deemed as being 'popular', but not necessarly reflect on price. This question could be solved using the classification model.
 
-*Prices are listed in SR, a transformation to $ could be made.
+*Prices are listed in SR, a transformation to $ could be made
 
 
