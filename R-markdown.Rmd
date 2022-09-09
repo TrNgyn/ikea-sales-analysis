@@ -50,7 +50,7 @@ skim(df)
 ```
 Using the skim fuction, we notice a significant amount of missing values in the depth, height and width variables. Number of missing values are 1464, 988 and 589 respectively, accounting for approximately 40%, 28% and 16% of the corresponding variables.
 ```{r}
-#Count the number of categories
+#Countnumber of categories
 df %>% count(category, sort=TRUE)
 ```
 Upon exploration, there are 17 categories within the IKEA sales data. 'Tables & desks' category has the highest number of items (612), and 'Room dividers' category has the lowest number of items (13).
